@@ -15,7 +15,7 @@ const Todo = function (Sequelize, DataTypes) {
       done: {
         type: DataTypes.BOOLEAN,
         allowNull: false,
-        defaultValue: 0,
+        defaultValue: false,
       },
     },
     {
@@ -27,4 +27,4 @@ const Todo = function (Sequelize, DataTypes) {
   return model;
 };
 
-module.exports = Visitor;
+module.exports = Todo;
