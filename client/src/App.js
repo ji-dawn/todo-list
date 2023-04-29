@@ -3,6 +3,7 @@ import Todo from "./components/Todo";
 import AddTodo from "./components/AddTodo";
 import axios from "axios";
 import "./styles/App.scss";
+import { API_BASE_URL } from "./app-cofing";
 
 function App() {
   const [todoItems, setTodoItems] = useState([]);
@@ -10,7 +11,7 @@ function App() {
   useEffect(() => {
     console.log("mount 완료");
     const getTodos = async () => {
-      const res = await axios.get("http://localhost:8000/api/todos");
+      const res = await axios.get(`${API_BASE_URL}/api/todos`);
       console.log(res);
       setTodoItems(res.data);
     };
@@ -36,14 +37,7 @@ function App() {
 
   // Todo 삭제하는 함수
   const deleteItem = async (targetItem) => {
-    // targetItem => { title: 'xxx', id: n, done: false }
-    // 1. filter()
-    // : targetItem의 id 와 todoItems state의 id가 같지 않은 애들을 새로운 배열로 반환
-    // const newTodoItems = todoItems.filter((item) => item.id !== targetItem.id);
-    // 2. state 변경
-    // setTodoItems(newTodoItems);
-
-    await axios.delete(`http://localhost:8000/api/todo/${targetItem.id}`);
+    await axios.delete(`${API_BASE_URL}/api/todo/${targetItem.id}`);
     const newTodoItems = todoItems.filter((item) => item.id !== targetItem.id);
     setTodoItems(newTodoItems);
   };
@@ -52,10 +46,7 @@ function App() {
   // (1) 서버 API를 이용해 DB 데이터 업데이트
   // (2) 변경된 내용을 화면에 다시 출력
   const updateItem = async (targetItem) => {
-    await axios.patch(
-      `http://localhost:8000/api/todo/${targetItem.id}`,
-      targetItem
-    );
+    await axios.patch(`${API_BASE_URL}/api/todo/${targetItem.id}`, targetItem);
   };
 
   return (

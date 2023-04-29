@@ -21,6 +21,10 @@ input[type="checkbox"] {
   margin-left: 16px;
   padding: 8px;
 }
+.Todo_input-edit:disabled {
+  font-style: italic;
+  text-decoration: line-through;
+}
 .Todo_btn-delete {
   background-color: $color-green;
   border: none;
