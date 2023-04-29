@@ -1,0 +1,43 @@
+@import "./_utils.scss";
+@import "~include-media/dist/include-media";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: lightgray;
+  overflow-x: hidden;
+}
+.App {
+  width: 680px;
+  min-height: 100vh;
+  text-align: center;
+  margin: 0 auto;
+}
+.App_header {
+  padding: 16px;
+  color: $color-white;
+  font-size: 24px;
+  background-color: $color-green;
+}
+.App_todo-rest {
+  color: gray;
+  margin-top: 16px;
+}
+button {
+  box-shadow: 0px 5px gray;
+}
+button:enabled:active {
+  transform: translateY(2px);
+  box-shadow: none;
+}
+button:disabled {
+  box-shadow: none;
+}
+@media (max-width: 680px) {
+  .App {
+    width: 100vw;
+  }
+}

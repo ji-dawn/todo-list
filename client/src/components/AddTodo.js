@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "../styles/AddTodo.scss";
 
 const AddTodo = ({ addItem }) => {
   const [todoItem, setTodoItem] = useState({
@@ -21,6 +22,7 @@ const AddTodo = ({ addItem }) => {
   return (
     <div className="AddTodo">
       <input
+        className="AddTodo_input-todo"
         type="text"
         placeholder="Add your new Todo"
         value={todoItem.title}
@@ -28,7 +30,9 @@ const AddTodo = ({ addItem }) => {
         onKeyPress={onEnterKeyDown}
         autoFocus
       />
-      <button onClick={onButtonClick}>ADD</button>
+      <button className="AddTodo_btn-add" onClick={onButtonClick}>
+        Add
+      </button>
     </div>
   );
 };

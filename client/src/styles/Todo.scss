@@ -1,0 +1,30 @@
+@import "./utils.scss";
+.Todo {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Todo_input-checkbox {
+  margin-left: 16px;
+  border: 2px solid $color-green;
+}
+input[type="checkbox"] {
+  transform: scale(2);
+  accent-color: $color-green;
+}
+.Todo_input-checkbox {
+  background-color: $color-green;
+}
+.Todo_input-edit {
+  width: 50%;
+  margin-left: 16px;
+  padding: 8px;
+}
+.Todo_btn-delete {
+  background-color: $color-green;
+  border: none;
+  border-radius: 3px;
+  margin-left: 16px;
+  padding: 8px;
+}

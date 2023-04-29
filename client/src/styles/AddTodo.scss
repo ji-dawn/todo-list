@@ -1,0 +1,21 @@
+@import "./utils.scss";
+.AddTodo {
+  margin-top: 16px;
+}
+.AddTodo_input-todo {
+  width: 50%;
+  border: 1px solid $color-green;
+  padding: 8px;
+  border: none;
+  border-bottom: 1px solid $color-green;
+}
+.AddTodo_input-todo:focus {
+  outline: none;
+}
+.AddTodo_btn-add {
+  background-color: $color-green;
+  border: none;
+  border-radius: 3px;
+  margin-left: 16px;
+  padding: 8px;
+}
