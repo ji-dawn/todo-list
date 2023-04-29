@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "../styles/Todo.scss";
 
-const Todo = ({ item, deleteItem }) => {
+const Todo = ({ item, deleteItem, updateItem }) => {
   const [todoItem, setTodoItem] = useState(item);
   const [readOnly, setReadOnly] = useState(true);
 
@@ -17,6 +17,7 @@ const Todo = ({ item, deleteItem }) => {
   const enterKeyEventHandler = (e) => {
     if (e.key === "Enter") {
       setReadOnly(true);
+      updateItem(todoItem); // 수정 case 1. text input에서 Enter 시 수정
     }
   };
 
@@ -32,7 +33,12 @@ const Todo = ({ item, deleteItem }) => {
 
   const checkboxEventHandler = (e) => {
     const { done, ...rest } = todoItem;
-    setTodoItem({ done: e.target.checked, ...rest });
+    const updatedItem = {
+      done: e.target.checked,
+      ...rest,
+    };
+    setTodoItem(updatedItem);
+    updateItem(updatedItem); // 수정 case 2. checkbox input에서 check 여부 변경 시 수정
   };
 
   return (
