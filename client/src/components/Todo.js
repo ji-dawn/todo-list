@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../styles/Todo.scss";
+import { Draggable } from "react-beautiful-dnd";
 
 const Todo = ({ item, deleteItem, updateItem }) => {
   const [todoItem, setTodoItem] = useState(item);
